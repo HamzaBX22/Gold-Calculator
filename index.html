@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gold Weight & Price Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>Gold Calculator</h1>
+            <p>Premium Weight & Price Estimation</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Weight Section -->
+            <section class="card weight-section">
+                <div class="card-header">
+                    <h2>Weight Calculation</h2>
+                    <button id="add-row-btn" class="icon-btn" aria-label="Add Row">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <span>Add Item</span>
+                    </button>
+                </div>
+
+                <div class="weight-table-header">
+                    <span>Vori</span>
+                    <span>Ana</span>
+                    <span>Roti</span>
+                    <span>Point</span>
+                    <span class="action-col"></span>
+                </div>
+
+                <div id="weight-rows-container">
+                    <!-- Rows will be added here loosely by JS -->
+                </div>
+
+                <div class="total-weight-display">
+                    <span class="label">Total Weight</span>
+                    <div class="result-value" id="total-weight-text">0 Vori 0 Ana 0 Roti 0 Point</div>
+                    <div class="decimal-weight" id="total-weight-decimal">(0.000 Vori)</div>
+                </div>
+            </section>
+
+            <!-- Price & Purity Section -->
+            <section class="card price-section">
+                <div class="card-header">
+                    <h2>Price & Karat</h2>
+                </div>
+
+                <div class="input-group">
+                    <div class="price-input-header">
+                        <label for="price-input">Price per Unit (BDT)</label>
+                        <div class="unit-toggle">
+                            <input type="radio" id="unit-vori" name="price-unit" value="vori" checked>
+                            <label for="unit-vori">Vori</label>
+
+                            <input type="radio" id="unit-tola" name="price-unit" value="tola">
+                            <label for="unit-tola">Tola</label>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="currency-symbol">৳</span>
+                        <input type="number" id="price-input" placeholder="e.g. 100000">
+                    </div>
+                </div>
+
+                <div class="karat-selector">
+                    <label>Select Purity (Karat)</label>
+                    <div class="karat-options">
+                        <button class="karat-btn active" data-value="1.00">24K</button>
+                        <button class="karat-btn" data-value="0.916">22K</button>
+                        <button class="karat-btn" data-value="0.875">21K</button>
+                        <button class="karat-btn" data-value="0.750">18K</button>
+                        <button class="karat-btn" data-value="custom">Custom</button>
+                    </div>
+                    <div class="custom-karat-wrapper hidden" id="custom-karat-wrapper">
+                        <label for="custom-purity">Custom Karat (0 - 24)</label>
+                        <input type="number" id="custom-purity" step="0.1" min="0" max="24" placeholder="e.g. 21">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Result Section -->
+            <section class="card result-card">
+                <div class="result-content">
+                    <span class="result-label">Estimated Price</span>
+                    <div class="final-price-wrapper">
+                        <span class="currency">৳</span>
+                        <span id="final-price">0</span>
+                    </div>
+                    <div class="breakdown-text" id="calculation-breakdown">
+                        0 Vori × 1.00 Purity × 0/Vori
+                    </div>
+                </div>
+                <!-- Ad Placeholder -->
+                <div class="ad-placeholder">
+                    <!-- Advertisement Space -->
+                    <span>Ad Space</span>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Gold Calc</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
